@@ -1,5 +1,6 @@
 /.vscode
 /ojdbc11.jar
 /target
+/example
 /src/main/java/com/sgcp/SortOfSimpleMvc.java
 /src/main/java/com/sgcp/JavaAbstractActionExample.java
