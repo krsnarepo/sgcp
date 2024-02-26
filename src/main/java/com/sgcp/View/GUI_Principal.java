@@ -43,6 +43,7 @@ public class GUI_Principal extends javax.swing.JPanel {
 
         
         jButton1.setText("Trabajadores");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabajadores.png")));
         jButton1.addActionListener(new ControladorPrincipal.GoTo("Empleados", contentPane));
 
         jButton2.setText("Resultados");

@@ -1,7 +1,5 @@
 package com.sgcp.Model;
 
-import com.sgcp.Model.FactoryPersonas.Cliente;
-
 public class Pedido {
     private int id_pedido;
     private Cliente cliente;

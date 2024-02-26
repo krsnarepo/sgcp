@@ -128,5 +128,4 @@ public class GUI_Empleados extends javax.swing.JPanel {
         jTable1.setModel(model);
     }
 
-
 }

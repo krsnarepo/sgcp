@@ -1,7 +1,4 @@
-package com.sgcp.Model.FactoryCitas;
-
-import com.sgcp.Model.FactoryPersonas.Cliente;
-import com.sgcp.Model.Resultado;
+package com.sgcp.Model;
 
 public class Cita {
     private int id_cita;
