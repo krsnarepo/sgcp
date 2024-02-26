@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.sgcp.Controller.ControladorPersonas;
+import com.sgcp.Controller.ControladorEmpleados;
 
 public class GUI_EmpleadosAdd extends JFrame{
 
@@ -23,7 +23,7 @@ public class GUI_EmpleadosAdd extends JFrame{
         jButton1 = new JButton();
 
         jButton1.setText("Guardar");
-        jButton1.addActionListener(new ControladorPersonas.Guardar(this));
+        jButton1.addActionListener(new ControladorEmpleados.Guardar(this));
 
         contentPane = new JPanel();
         contentPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));

@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import com.sgcp.Controller.ControladorPersonas;
+import com.sgcp.Controller.ControladorEmpleados;
 import com.sgcp.Controller.ControladorPrincipal;
 
 import oracle.jdbc.datasource.impl.OracleDataSource;
@@ -38,9 +38,10 @@ public class MainFrame implements Runnable{
             LogPanel = new GUI_Login(ventana,contentPane,bd);
             MainPanel = new GUI_Principal(contentPane);
             EmpPanel = new GUI_Empleados(contentPane,bd);
+            
 
             //new ControladorPrincipal(MainPanel, contentPane);
-            new ControladorPersonas(EmpPanel, contentPane, bd);
+            new ControladorEmpleados(EmpPanel, contentPane, bd);
 
             contentPane.add(LogPanel, "Login");
             contentPane.add(MainPanel, "Menu Principal");

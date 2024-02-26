@@ -27,13 +27,13 @@ import java.sql.Statement;
 import com.sgcp.Model.FactoryPersonas.ClientFactory;
 import com.sgcp.Model.FactoryPersonas.EmployeeFactory;
 
-public class ControladorPersonas {
+public class ControladorEmpleados {
     
     private Connection bd;
     private JPanel contentPane;
     GeneralPersonFactory persona;
     
-    public ControladorPersonas(GUI_Empleados m, JPanel panel, Connection bd) {
+    public ControladorEmpleados(GUI_Empleados m, JPanel panel, Connection bd) {
         contentPane = panel;
         this.bd = bd;
         m.Table1SetModel(UpdateEmpleadoTable());
@@ -43,7 +43,7 @@ public class ControladorPersonas {
         
         DefaultTableModel model;
         String Query = "SELECT * FROM EMPLEADO";
-        String[] row = new String[50];
+        String[] row = new String[10];
 
         try {
             Statement st = (Statement) bd.createStatement();          

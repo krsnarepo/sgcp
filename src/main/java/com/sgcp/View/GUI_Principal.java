@@ -46,6 +46,7 @@ public class GUI_Principal extends javax.swing.JPanel {
         jButton1.addActionListener(new ControladorPrincipal.GoTo("Empleados", contentPane));
 
         jButton2.setText("Resultados");
+        jButton2.addActionListener(new ControladorPrincipal.GoTo("Resultados", contentPane));
 
         jButton3.setText("Pagos");
 
