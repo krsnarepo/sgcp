@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import javax.swing.JPanel;
 
-import com.sgcp.Controller.Listener.BackToMenuListener;
+import com.sgcp.Controller.Listener.GoToListener;
 
 public class GUI_Pedidos extends JPanel {
 
@@ -35,7 +35,7 @@ public class GUI_Pedidos extends JPanel {
         jLabel1.setText("Pedidos");
 
         jButton1.setText("Salir");
-        jButton1.addActionListener(new BackToMenuListener(contentPane));
+        jButton1.addActionListener(new GoToListener("Menu Principal", contentPane));
 
         jButton2.setText("Agregar pedido");
 

@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import javax.swing.JPanel;
 
-import com.sgcp.Controller.Listener.BackToMenuListener;
+import com.sgcp.Controller.Listener.GoToListener;
 
 public class GUI_Consultas extends JPanel {
 
@@ -53,7 +53,7 @@ public class GUI_Consultas extends JPanel {
         jLabel6.setText("DNI");
 
         jButton1.setText("Volver");
-        jButton1.addActionListener(new BackToMenuListener(contentPane));
+        jButton1.addActionListener(new GoToListener("Menu Principal", contentPane));
         
         jButton2.setText("Buscar");
 

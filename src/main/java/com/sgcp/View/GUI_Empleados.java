@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 import com.sgcp.Controller.ControladorEmpleados;
-import com.sgcp.Controller.Listener.BackToMenuListener;
+import com.sgcp.Controller.Listener.GoToListener;
 
 public class GUI_Empleados extends javax.swing.JPanel {
 
@@ -44,7 +44,7 @@ public class GUI_Empleados extends javax.swing.JPanel {
         jLabel1.setText("Gestion de Empleados");
 
         jButton1.setText("Volver");
-        jButton1.addActionListener(new BackToMenuListener(contentPane));
+        jButton1.addActionListener(new GoToListener("Menu Principal", contentPane));
 
         jButton2.setText("Agregar empleado");
         jButton2.addActionListener(new ControladorEmpleados.ButtonAddEmpleado());

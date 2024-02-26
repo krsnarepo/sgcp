@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import javax.swing.JPanel;
 
-import com.sgcp.Controller.Listener.BackToMenuListener;
+import com.sgcp.Controller.Listener.GoToListener;
 
 public class GUI_Pagos extends JPanel {
 
@@ -162,7 +162,7 @@ public class GUI_Pagos extends JPanel {
         jTabbedPane1.addTab("Anular pago", jPanel2);
 
         jButton3.setText("Volver");
-        jButton3.addActionListener(new BackToMenuListener(contentPane));
+        jButton3.addActionListener(new GoToListener("Menu Principal", contentPane));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

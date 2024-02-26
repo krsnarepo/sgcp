@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import javax.swing.JPanel;
 
-import com.sgcp.Controller.Listener.BackToMenuListener;
+import com.sgcp.Controller.Listener.GoToListener;
 
 public class GUI_Citas extends javax.swing.JPanel {
 
@@ -47,7 +47,7 @@ public class GUI_Citas extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("volver");
-        jButton1.addActionListener(new BackToMenuListener(contentPane));
+        jButton1.addActionListener(new GoToListener("Menu Principal", contentPane));
 
         jButton2.setText("nuevo examen");
 

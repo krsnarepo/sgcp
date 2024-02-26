@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import javax.swing.JPanel;
 
-import com.sgcp.Controller.Listener.BackToMenuListener;
+import com.sgcp.Controller.Listener.GoToListener;
 
 public class GUI_Clientes extends JPanel {
 
@@ -180,7 +180,7 @@ public class GUI_Clientes extends JPanel {
         jLabel11.setText("Gestión de clientes");
 
         jButton1.setText("Volver");
-        jButton1.addActionListener(new BackToMenuListener(contentPane));
+        jButton1.addActionListener(new GoToListener("Menu Principal", contentPane));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
