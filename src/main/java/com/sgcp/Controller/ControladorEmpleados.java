@@ -40,11 +40,29 @@ public class ControladorEmpleados {
     private DefaultTableModel UpdateEmpleadoTable() {
         
         DefaultTableModel model = new DefaultTableModel();
-        
-        ArrayList<String[]> tabla = BD.getAllEmpleados();
+        ArrayList<Empleado> empleados = BD.getAllEmpleados();
 
-        for (int i = 0; i < tabla.size(); i++)
-            model.addRow(tabla.get(0));
+        model.addColumn("ID_EMPLEADO");
+        model.addColumn("NOMBRES");
+        model.addColumn("APELLIDOS");
+        model.addColumn("DIRECCION");
+        model.addColumn("TELEF");
+        model.addColumn("DNI");
+        model.addColumn("PUESTO");
+        model.addColumn("CORREO");
+
+        for (Empleado e : empleados) {
+            model.addRow(new Object[] {
+                e.getID(),
+                e.getNombres(),
+                e.getApellidos(),
+                e.getDireccion(),
+                e.getTelefono(),
+                e.getDNI(),
+                e.getPuesto(),
+                e.getCorreo()
+            });
+        }
 
         return model;
     

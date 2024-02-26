@@ -17,35 +17,34 @@ public class OperacionesBD {
         this.bd = bd;
     }
 
-    public ArrayList<String[]> getAllEmpleados() {
-        
-        String Query = "SELECT * FROM EMPLEADO";
-        ArrayList<String[]> tabla = new ArrayList<>();
 
+    public ArrayList<Empleado> getAllEmpleados() {
+
+        String Query = "SELECT * FROM EMPLEADO";
+        ArrayList<Empleado> tabla = new ArrayList<>();
+        
         try {
             Statement st = (Statement) bd.createStatement();          
             ResultSet rs = st.executeQuery(Query);
-            ResultSetMetaData m = rs.getMetaData();
-            int n = m.getColumnCount();
-            String[] s = new String[n];
-
-            for (int i = 0; i < n; i++)
-                s[i] = m.getColumnName(i+1);
-            tabla.add(s);
 
             while (rs.next()) {
-                for (int i = 0; i < s.length; i++)
-                    s[i] = rs.getString(i);
-                tabla.add(s);
+                Empleado empleado = new Empleado();
+                empleado.setID(rs.getInt("ID_EMPLEADO"));
+                empleado.setNombres(rs.getString("NOMBRES"));
+                empleado.setApellidos(rs.getString("APELLIDOS"));
+                empleado.setDireccion(rs.getString("DIRECCION"));
+                empleado.setTelefono(rs.getString("TELEF"));
+                empleado.setDNI(rs.getInt("DNI"));
+                empleado.setPuesto(rs.getString("PUESTO"));
+                empleado.setCorreo(rs.getString("CORREO"));
+                tabla.add(empleado);
             }
 
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println("Imposible recuperar los datos");
         }
-
         return tabla;
-
     }
     
 }
