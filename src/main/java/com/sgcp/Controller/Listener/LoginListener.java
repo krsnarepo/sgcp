@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
@@ -28,7 +29,8 @@ public class LoginListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        if (true) {//checkUser(acceso.getField1Text(), acceso.getField2Text())
+
+        if (checkUser(acceso.getField1Text(), acceso.getField2Text())) {//Cambiar a true si no existen empleados en la bd
             acceso.setSuccess();
             CardLayout cardLayout = (CardLayout) contentPane.getLayout();
             cardLayout.show(contentPane, "Menu Principal");
@@ -42,13 +44,16 @@ public class LoginListener implements ActionListener {
     public Boolean checkUser(String user, String password) {
 
         Boolean check = false;
-        String Query = "SELECT COUNT(*) FROM USERS WHERE user = " + acceso.getField1Text()
-                        + " AND password = " + acceso.getField2Text();
+        String Query = "SELECT COUNT(*) FROM EMPLEADO WHERE CORREO = '" + acceso.getField1Text()
+                        + "' AND DNI = '" + acceso.getField2Text() + "'";
+        
         try {
             Statement statement = (Statement) bd.createStatement();
             ResultSet result = statement.executeQuery(Query);
+            ResultSetMetaData metadata = result.getMetaData();
+            String name = metadata.getColumnName(1);
             result.next();
-            int count = result.getInt(1);
+            int count = result.getInt(name);
             check = count > 0;
         } catch (SQLException e) {
             // TODO Auto-generated catch block
