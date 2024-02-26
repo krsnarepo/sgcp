@@ -2,8 +2,8 @@ package com.sgcp.Model.FactoryPersonas;
 
 public class Cliente extends Persona implements PersonOP{
 
-    public Cliente(String nombres, String apellidos, String direccion, String telefono, int dni) {
-        super(nombres,apellidos,direccion,telefono,dni);
+    public Cliente(int id, String nombres, String apellidos, String direccion, String telefono, int dni) {
+        super(id,nombres,apellidos,direccion,telefono,dni);
     }
 
     @Override

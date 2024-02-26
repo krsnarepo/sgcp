@@ -4,17 +4,16 @@ import com.sgcp.Model.FactoryPersonas.Cliente;
 import com.sgcp.Model.Resultado;
 
 public class Cita {
+    private int id_cita;
     private String fecha;
     private Cliente solicitante;
-    private Resultado result;
+    private int id_empleado;
 
-    public Cita(Cliente nuevo, String fecha){
+    public Cita(int id_c, Cliente nuevo, String fecha, int id_e){
+        id_cita = id_c;
         this.fecha = fecha;
         solicitante = nuevo;
-    }
-
-    public void AddResultado(Resultado resultado){
-        this.result = resultado;
+        id_empleado = id_e;
     }
 
 }

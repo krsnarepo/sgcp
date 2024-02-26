@@ -21,6 +21,12 @@ public class MainFrame implements Runnable{
     private GUI_Login LogPanel;
     private GUI_Principal MainPanel;
     private GUI_Empleados EmpPanel;
+    private GUI_Citas CitPanel;
+    private GUI_Clientes CliPanel;
+    private GUI_Inventario InvPanel;
+    private GUI_Pagos PagPanel;
+    private GUI_Pedidos PedPanel;
+    private GUI_Resultados ResPanel; 
 
     public void display() {
 
@@ -38,7 +44,12 @@ public class MainFrame implements Runnable{
             LogPanel = new GUI_Login(ventana,contentPane,bd);
             MainPanel = new GUI_Principal(contentPane);
             EmpPanel = new GUI_Empleados(contentPane,bd);
-            
+            CitPanel = new GUI_Citas(contentPane, bd);
+            CliPanel = new GUI_Clientes(contentPane, bd);
+            InvPanel = new GUI_Inventario(contentPane, bd);
+            PagPanel = new GUI_Pagos(contentPane, bd);
+            PedPanel = new GUI_Pedidos(contentPane, bd);
+            ResPanel = new GUI_Resultados(contentPane, bd);
 
             //new ControladorPrincipal(MainPanel, contentPane);
             new ControladorEmpleados(EmpPanel, contentPane, bd);
@@ -46,6 +57,12 @@ public class MainFrame implements Runnable{
             contentPane.add(LogPanel, "Login");
             contentPane.add(MainPanel, "Menu Principal");
             contentPane.add(EmpPanel, "Empleados");
+            contentPane.add(CitPanel, "Citas");
+            contentPane.add(CliPanel, "Clientes");
+            contentPane.add(InvPanel, "Inventario");
+            contentPane.add(PagPanel, "Pagos");
+            contentPane.add(PedPanel, "Pedidos");
+            contentPane.add(ResPanel, "Resultados");
             
             ventana.setContentPane(contentPane);
 

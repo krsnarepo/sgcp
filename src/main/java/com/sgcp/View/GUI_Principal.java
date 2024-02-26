@@ -49,16 +49,22 @@ public class GUI_Principal extends javax.swing.JPanel {
         jButton2.addActionListener(new ControladorPrincipal.GoTo("Resultados", contentPane));
 
         jButton3.setText("Pagos");
+        jButton3.addActionListener(new ControladorPrincipal.GoTo("Pagos", contentPane));
 
         jButton4.setText("Clientes");
+        jButton4.addActionListener(new ControladorPrincipal.GoTo("Clientes", contentPane));
 
         jButton5.setText("Programacion");
+        jButton5.addActionListener(new ControladorPrincipal.GoTo("Citas", contentPane));
 
         jButton6.setText("Inventario");
+        jButton6.addActionListener(new ControladorPrincipal.GoTo("Inventario", contentPane));
 
         jButton7.setText("Consultas");
+        jButton7.addActionListener(new ControladorPrincipal.GoTo("Resultados", contentPane));
 
         jButton8.setText("Pedidos");
+        jButton8.addActionListener(new ControladorPrincipal.GoTo("Pedidos", contentPane));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

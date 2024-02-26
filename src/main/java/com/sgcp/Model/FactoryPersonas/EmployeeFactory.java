@@ -4,7 +4,7 @@ public class EmployeeFactory extends GeneralPersonFactory{
 
     @Override
     public PersonOP CrearPersona() {
-        return new Empleado(null, null, null, null, 0, null, null);
+        return new Empleado(0, null, null, null, null, 0, null, null);
     }
     
 }

@@ -5,8 +5,8 @@ public class Empleado extends Persona implements PersonOP{
     protected String Puesto;
     protected String Correo;
 
-    public Empleado(String nombres, String apellidos, String direccion, String telefono, int dni, String puesto, String correo) {
-        super(nombres, apellidos, direccion, telefono, dni);
+    public Empleado(int id, String nombres, String apellidos, String direccion, String telefono, int dni, String puesto, String correo) {
+        super(id, nombres, apellidos, direccion, telefono, dni);
         Puesto = puesto;
         Correo = correo;
     }
