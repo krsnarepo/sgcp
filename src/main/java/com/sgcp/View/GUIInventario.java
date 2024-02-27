@@ -3,6 +3,7 @@ package com.sgcp.View;
 import java.sql.Connection;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 import com.sgcp.Controller.Listener.GoToListener;
 
@@ -88,6 +89,14 @@ public class GUIInventario extends JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
+    }
+
+    public void Table1SetModel(DefaultTableModel model){
+        jTable1.setModel(model);
+    }
+
+    public javax.swing.JTable getTable(){
+        return jTable1;
     }
     
 }

@@ -9,7 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.sgcp.Controller.ControladorCitas;
 import com.sgcp.Controller.ControladorEmpleados;
+import com.sgcp.Controller.ControladorInventario;
+import com.sgcp.Controller.ControladorResultados;
+import com.sgcp.Model.DAO.OperacionesGeneral;
 
 import oracle.jdbc.datasource.impl.OracleDataSource;
 
@@ -26,6 +30,7 @@ public class MainFrame implements Runnable{
     private GUIPagos PagPanel;
     private GUIPedidos PedPanel;
     private GUIResultados ResPanel; 
+    private GUIConsultas ConsPanel;
 
     public void display() {
 
@@ -39,9 +44,12 @@ public class MainFrame implements Runnable{
         bd = CrearConexion();
 
         if (bd != null) {
+
+            OperacionesGeneral.setConnection(bd);
             
             LogPanel = new GUILogin(ventana,contentPane,bd);
             MainPanel = new GUIPrincipal(contentPane);
+
             EmpPanel = new GUIEmpleados(contentPane,bd);
             CitPanel = new GUICitas(contentPane, bd);
             CliPanel = new GUIClientes(contentPane, bd);
@@ -49,12 +57,17 @@ public class MainFrame implements Runnable{
             PagPanel = new GUIPagos(contentPane, bd);
             PedPanel = new GUIPedidos(contentPane, bd);
             ResPanel = new GUIResultados(contentPane, bd);
+            ConsPanel = new GUIConsultas(contentPane, bd);
 
             //new ControladorPrincipal(MainPanel, contentPane);
             new ControladorEmpleados(EmpPanel, contentPane, bd);
+            new ControladorCitas(CitPanel, bd);
+            new ControladorResultados(ResPanel, bd);
+            new ControladorInventario(InvPanel, bd);
 
             contentPane.add(LogPanel, "Login");
             contentPane.add(MainPanel, "Menu Principal");
+
             contentPane.add(EmpPanel, "Empleados");
             contentPane.add(CitPanel, "Citas");
             contentPane.add(CliPanel, "Clientes");
@@ -62,6 +75,7 @@ public class MainFrame implements Runnable{
             contentPane.add(PagPanel, "Pagos");
             contentPane.add(PedPanel, "Pedidos");
             contentPane.add(ResPanel, "Resultados");
+            contentPane.add(ConsPanel, "Consultas");
             
             ventana.setContentPane(contentPane);
 

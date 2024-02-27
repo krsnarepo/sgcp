@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import com.sgcp.Model.Empleado;
 
 public class OperacionesBD {
@@ -84,6 +86,7 @@ public class OperacionesBD {
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error al ejecutar la consulta: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
 

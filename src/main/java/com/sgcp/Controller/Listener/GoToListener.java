@@ -20,6 +20,7 @@ public class GoToListener implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         CardLayout cardLayout = (CardLayout) contentPane.getLayout();
         cardLayout.show(contentPane, option);
+        contentPane.setPreferredSize(null);
     }
     
 }

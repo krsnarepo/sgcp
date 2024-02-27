@@ -32,6 +32,7 @@ public class LoginListener implements ActionListener {
             acceso.setSuccess();
             CardLayout cardLayout = (CardLayout) contentPane.getLayout();
             cardLayout.show(contentPane, "Menu Principal");
+            contentPane.setPreferredSize(null);
         }
         else {
             JOptionPane.showMessageDialog(acceso, "Usuario y contraseña no encontrados",

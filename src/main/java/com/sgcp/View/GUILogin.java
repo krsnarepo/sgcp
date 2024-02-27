@@ -40,10 +40,13 @@ public class GUILogin extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(160, 160, 255));
+
         jLabel1.setText("Usuario");
 
         jLabel2.setText("Contraseña");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18));
         jLabel3.setText("SISTEMA DE GESTION CLÍNICO ÓPTICO ");
 
         jButton1.setText("Acceder");

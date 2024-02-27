@@ -3,6 +3,7 @@ package com.sgcp.View;
 import java.sql.Connection;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 import com.sgcp.Controller.Listener.GoToListener;
 
@@ -99,6 +100,14 @@ public class GUIResultados extends JPanel {
                 .addComponent(jButton1)
                 .addGap(35, 35, 35))
         );
+    }
+
+    public void Table1SetModel(DefaultTableModel model){
+        jTable1.setModel(model);
+    }
+
+    public javax.swing.JTable getTable(){
+        return jTable1;
     }
     
 }

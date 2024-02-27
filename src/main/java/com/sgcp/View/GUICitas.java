@@ -1,14 +1,14 @@
 package com.sgcp.View;
 
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 import com.sgcp.Controller.Listener.GoToListener;
 
 public class GUICitas extends javax.swing.JPanel {
-
-    
 
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -49,7 +49,7 @@ public class GUICitas extends javax.swing.JPanel {
         jButton1.setText("volver");
         jButton1.addActionListener(new GoToListener("Menu Principal", contentPane));
 
-        jButton2.setText("nuevo examen");
+        jButton2.setText("Nuevo examen");
 
         jButton3.setText("Detalles de examen");
 
@@ -81,6 +81,22 @@ public class GUICitas extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
+    }
+
+    public void Table1SetModel(DefaultTableModel model){
+        jTable1.setModel(model);
+    }
+
+    public void setButton2ActionListener(ActionListener action) {
+        jButton2.addActionListener(action);
+    }
+
+    public void setButton3ActionListener(ActionListener action) {
+        jButton3.addActionListener(action);
+    }
+
+    public javax.swing.JTable getTable(){
+        return jTable1;
     }
     
 }

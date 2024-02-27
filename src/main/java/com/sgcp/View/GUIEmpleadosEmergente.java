@@ -1,7 +1,11 @@
 package com.sgcp.View;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,53 +21,68 @@ public class GUIEmpleadosEmergente extends JFrame {
     private void GuardarDialog() {  
 
         this.setName("Añadir empleado");
-        this.setSize(400, 500);
+        this.setPreferredSize(new Dimension(400,300));
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JPanel panelPrincipal = new JPanel(new BorderLayout());
+
+        JPanel panelLabels = new JPanel();
+        panelLabels.setLayout(new BoxLayout(panelLabels, BoxLayout.Y_AXIS));
 
         // Crear componentes para el formulario
         idLabel = new JLabel("ID_PACIENTE");
         nameLabel = new JLabel("NOMBRES:");
         surnameLabel = new JLabel("APELLIDOS:");
-        dirLabel = new JLabel("DIRECCION");
-        numLabel = new JLabel("TELEFONO");
-        dniLabel = new JLabel("DNI");
-        posLabel = new JLabel("PUESTO");
-        mailLabel = new JLabel("CORREO");
+        dirLabel = new JLabel("DIRECCION:");
+        numLabel = new JLabel("TELEFONO:");
+        dniLabel = new JLabel("DNI:");
+        posLabel = new JLabel("PUESTO:");
+        mailLabel = new JLabel("CORREO:");
 
-        idField = new JTextField(30);
-        nameField = new JTextField(30);
-        surnameField = new JTextField(30);
-        dirField = new JTextField(30);
-        numField = new JTextField(30);
-        dniField = new JTextField(30);
-        posField = new JTextField(30);
-        mailField = new JTextField(30);
+        panelLabels.add(idLabel);
+        panelLabels.add(nameLabel);
+        panelLabels.add(surnameLabel);
+        panelLabels.add(dirLabel);
+        panelLabels.add(numLabel);
+        panelLabels.add(dniLabel);
+        panelLabels.add(posLabel);
+        panelLabels.add(mailLabel);
+
+        JPanel panelTextFields = new JPanel();
+        panelTextFields.setLayout(new BoxLayout(panelTextFields, BoxLayout.Y_AXIS));
+
+        idField = new JTextField(20);
+        nameField = new JTextField(20);
+        surnameField = new JTextField(20);
+        dirField = new JTextField(20);
+        numField = new JTextField(20);
+        dniField = new JTextField(20);
+        posField = new JTextField(20);
+        mailField = new JTextField(20);
+
+        panelTextFields.add(idField);
+        panelTextFields.add(nameField);
+        panelTextFields.add(surnameField);
+        panelTextFields.add(dirField);
+        panelTextFields.add(numField);
+        panelTextFields.add(dniField);
+        panelTextFields.add(posField);
+        panelTextFields.add(mailField);
+
+        JPanel panelBoton = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
         // Crear un botón para aceptar el formulario
         acceptButton = new JButton("Aceptar");
 
+        panelBoton.add(acceptButton);
+
         // Crear un panel para organizar los componentes
-        JPanel panel = new JPanel();
-        panel.add(idLabel);
-        panel.add(idField);
-        panel.add(nameLabel);
-        panel.add(nameField);
-        panel.add(surnameLabel);
-        panel.add(surnameField);
-        panel.add(dirLabel);
-        panel.add(dirField);
-        panel.add(numLabel);
-        panel.add(numField);
-        panel.add(dniLabel);
-        panel.add(dniField);
-        panel.add(posLabel);
-        panel.add(posField);
-        panel.add(mailLabel);
-        panel.add(mailField);
+        panelPrincipal.add(panelLabels, BorderLayout.WEST);
+        panelPrincipal.add(panelTextFields, BorderLayout.CENTER);
+        panelPrincipal.add(panelBoton, BorderLayout.SOUTH);
 
-        panel.add(acceptButton);
-
-        this.add(panel);
+        this.add(panelPrincipal);
+        pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
