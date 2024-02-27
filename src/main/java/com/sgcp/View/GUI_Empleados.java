@@ -1,11 +1,11 @@
 package com.sgcp.View;
 
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
-import com.sgcp.Controller.ControladorEmpleados;
 import com.sgcp.Controller.Listener.GoToListener;
 
 public class GUI_Empleados extends javax.swing.JPanel {
@@ -19,8 +19,6 @@ public class GUI_Empleados extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
 
-    //private DefaultTableModel model;
-    //private String[] row = new String[50];
     private JPanel contentPane;
     public Connection bd;
 
@@ -28,7 +26,6 @@ public class GUI_Empleados extends javax.swing.JPanel {
         this.bd = bd;
         contentPane = panel;
         initComponents();
-
     }
                         
     private void initComponents() {
@@ -47,7 +44,6 @@ public class GUI_Empleados extends javax.swing.JPanel {
         jButton1.addActionListener(new GoToListener("Menu Principal", contentPane));
 
         jButton2.setText("Agregar empleado");
-        jButton2.addActionListener(new ControladorEmpleados.ButtonAddEmpleado());
 
         jButton3.setText("Modificar empleado");
 
@@ -126,6 +122,10 @@ public class GUI_Empleados extends javax.swing.JPanel {
 
     public void Table1SetModel(DefaultTableModel model){
         jTable1.setModel(model);
+    }
+
+    public void setButton2ActionListener(ActionListener action) {
+        jButton2.addActionListener(action);
     }
 
 }

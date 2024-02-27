@@ -1,10 +1,5 @@
 package com.sgcp.Model;
 
-import java.sql.Connection;
-import java.util.ArrayList;
-
-import com.sgcp.Model.DAO.OperacionesBD;
-
 public class Empleado extends Persona {
     
     private String Puesto;

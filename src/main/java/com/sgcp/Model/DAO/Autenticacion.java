@@ -1,6 +1,7 @@
 package com.sgcp.Model.DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -17,17 +18,18 @@ public class Autenticacion {
     public Boolean checkUser(String user, String password) {
 
         Boolean check = false;
-        String Query = "SELECT COUNT(*) FROM EMPLEADO WHERE CORREO = '" + user
-                        + "' AND DNI = '" + password + "'";
+        String Query = "SELECT COUNT(*) FROM EMPLEADO WHERE CORREO = ? AND DNI = ?";
         
-        try {
-            Statement statement = (Statement) bd.createStatement();
-            ResultSet result = statement.executeQuery(Query);
-            ResultSetMetaData metadata = result.getMetaData();
-            String name = metadata.getColumnName(1);
-            result.next();
-            int count = result.getInt(name);
-            check = count > 0;
+        try (PreparedStatement ps = bd.prepareStatement(Query)){
+            ps.setString(1, user);
+            ps.setString(2, password);
+
+            ResultSet result = ps.executeQuery();
+
+            if (result.next()){
+                int count = result.getInt(1);
+                check = count > 0;
+            }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

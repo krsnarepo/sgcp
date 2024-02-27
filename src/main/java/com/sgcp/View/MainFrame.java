@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.sgcp.Controller.ControladorEmpleados;
-import com.sgcp.Controller.ControladorPrincipal;
 
 import oracle.jdbc.datasource.impl.OracleDataSource;
 

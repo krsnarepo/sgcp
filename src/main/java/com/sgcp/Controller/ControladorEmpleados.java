@@ -2,18 +2,15 @@ package com.sgcp.Controller;
 import com.sgcp.Model.Empleado;
 import com.sgcp.Model.DAO.OperacionesBD;
 import com.sgcp.View.GUI_Empleados;
+import com.sgcp.View.GUI_EmpleadosAdd;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import java.sql.Connection;
@@ -31,6 +28,7 @@ public class ControladorEmpleados {
         contentPane = panel;
         view = m;
         view.Table1SetModel(UpdateEmpleadoTable());
+        view.setButton2ActionListener(new ButtonAdd());
     }
 
     private void UpdateTable() {
@@ -103,63 +101,48 @@ public class ControladorEmpleados {
 
     }
 
-    public static class ButtonAddEmpleado implements ActionListener {
 
-        //Codigo de ejepmlo para incluir JDialog en JFrame
-        //Está por mientras, deberia todo esto implementarse en una clase aparte que sea del paquete View
+    public class ButtonAdd implements ActionListener {
+    
         @Override
-        public void actionPerformed(ActionEvent event) {
-
-            JFrame frame = new JFrame("Ventana Principal");
-            frame.setSize(300, 200);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-            JDialog dialog = new JDialog(frame, "Diálogo Modal", true);
-            dialog.setSize(300, 200);
-            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-
-            // Crear componentes para el formulario
-            JLabel nameLabel = new JLabel("Nombre:");
-            JTextField nameField = new JTextField(20);
-            JLabel ageLabel = new JLabel("Edad:");
-            JTextField ageField = new JTextField(3);
-
-            // Crear un botón para aceptar el formulario
-            JButton acceptButton = new JButton("Aceptar");
-            acceptButton.addActionListener(new Guardar(frame));
-
-            // Crear un panel para organizar los componentes
-            JPanel panel = new JPanel();
-            panel.add(nameLabel);
-            panel.add(nameField);
-            panel.add(ageLabel);
-            panel.add(ageField);
-            panel.add(acceptButton);
-
-            // Agregar el panel al contenido del diálogo
-            dialog.add(panel);
-
-            // Centrar el diálogo en la pantalla
-            dialog.setLocationRelativeTo(frame);
-
-            // Hacer visible el diálogo
-            dialog.setVisible(true);
+        public void actionPerformed(ActionEvent arg0) {
+            GUI_EmpleadosAdd emergente = new GUI_EmpleadosAdd();
+            emergente.setButton1ActionListener(new Guardar(emergente));
         }
         
     }
+    
 
-    public static class Guardar implements ActionListener {
+    public class Guardar implements ActionListener {
 
-        private JFrame ventana;
+        private GUI_EmpleadosAdd addon;
 
-        public Guardar(JFrame emergente) {
-            ventana = emergente;
+        public Guardar(GUI_EmpleadosAdd panel) {
+            addon = panel;
         }
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            //Se podria obtener los campos ingresados creando getters para los jTextField
-            ventana.dispose();
+            model = new Empleado();
+
+            try {
+                model.setID(Integer.parseInt(addon.getIdField()));
+                model.setNombres(addon.getNameField());
+                model.setApellidos(addon.getSurnameField());
+                model.setDireccion(addon.getDirField());
+                model.setTelefono(addon.getNumField());
+                model.setDNI(Integer.parseInt(addon.getDniField()));
+                model.setPuesto(addon.getPosField());
+                model.setCorreo(addon.getPosField());
+
+                BD.SaveNewEmpleado(model);
+                UpdateTable();
+                addon.dispose();
+            } catch (Exception e) {
+                // TODO: handle exception
+                JOptionPane.showMessageDialog(addon, "Error al ingresar los datos. Verifique los campos");
+            }
+            
         }
 
     }

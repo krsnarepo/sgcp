@@ -7,5 +7,8 @@ public class ControladorCitas {
 
     private Cita model;
     private GUI_Citas view;
-    
+
+    public ControladorCitas() {
+
+    }    
 }
