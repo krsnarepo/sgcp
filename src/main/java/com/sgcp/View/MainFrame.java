@@ -17,15 +17,15 @@ public class MainFrame implements Runnable{
 
     private Connection bd = null;
     private JPanel contentPane;
-    private GUI_Login LogPanel;
-    private GUI_Principal MainPanel;
-    private GUI_Empleados EmpPanel;
-    private GUI_Citas CitPanel;
-    private GUI_Clientes CliPanel;
-    private GUI_Inventario InvPanel;
-    private GUI_Pagos PagPanel;
-    private GUI_Pedidos PedPanel;
-    private GUI_Resultados ResPanel; 
+    private GUILogin LogPanel;
+    private GUIPrincipal MainPanel;
+    private GUIEmpleados EmpPanel;
+    private GUICitas CitPanel;
+    private GUIClientes CliPanel;
+    private GUIInventario InvPanel;
+    private GUIPagos PagPanel;
+    private GUIPedidos PedPanel;
+    private GUIResultados ResPanel; 
 
     public void display() {
 
@@ -40,15 +40,15 @@ public class MainFrame implements Runnable{
 
         if (bd != null) {
             
-            LogPanel = new GUI_Login(ventana,contentPane,bd);
-            MainPanel = new GUI_Principal(contentPane);
-            EmpPanel = new GUI_Empleados(contentPane,bd);
-            CitPanel = new GUI_Citas(contentPane, bd);
-            CliPanel = new GUI_Clientes(contentPane, bd);
-            InvPanel = new GUI_Inventario(contentPane, bd);
-            PagPanel = new GUI_Pagos(contentPane, bd);
-            PedPanel = new GUI_Pedidos(contentPane, bd);
-            ResPanel = new GUI_Resultados(contentPane, bd);
+            LogPanel = new GUILogin(ventana,contentPane,bd);
+            MainPanel = new GUIPrincipal(contentPane);
+            EmpPanel = new GUIEmpleados(contentPane,bd);
+            CitPanel = new GUICitas(contentPane, bd);
+            CliPanel = new GUIClientes(contentPane, bd);
+            InvPanel = new GUIInventario(contentPane, bd);
+            PagPanel = new GUIPagos(contentPane, bd);
+            PedPanel = new GUIPedidos(contentPane, bd);
+            ResPanel = new GUIResultados(contentPane, bd);
 
             //new ControladorPrincipal(MainPanel, contentPane);
             new ControladorEmpleados(EmpPanel, contentPane, bd);

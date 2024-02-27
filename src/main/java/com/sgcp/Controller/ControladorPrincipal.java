@@ -8,14 +8,14 @@ import java.awt.event.ActionListener;
 import javax.swing.AbstractAction;
 import javax.swing.JPanel;
 
-import com.sgcp.View.GUI_Principal;
+import com.sgcp.View.GUIPrincipal;
 
 public class ControladorPrincipal {
     
-    private GUI_Principal view;
+    private GUIPrincipal view;
     private JPanel contentPane;
 
-    public ControladorPrincipal(GUI_Principal vista, JPanel panel) {
+    public ControladorPrincipal(GUIPrincipal vista, JPanel panel) {
         view = vista;
         contentPane = panel;
 

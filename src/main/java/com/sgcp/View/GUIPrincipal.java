@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import com.sgcp.Controller.ControladorPrincipal;
 //import com.sgcp.Controller.test.GoToListener;
 
-public class GUI_Principal extends javax.swing.JPanel {
+public class GUIPrincipal extends javax.swing.JPanel {
 
     private JPanel contentPane;
 
@@ -21,7 +21,7 @@ public class GUI_Principal extends javax.swing.JPanel {
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     
-    public GUI_Principal(JPanel panel){
+    public GUIPrincipal(JPanel panel){
         contentPane = panel;
         init();
     }

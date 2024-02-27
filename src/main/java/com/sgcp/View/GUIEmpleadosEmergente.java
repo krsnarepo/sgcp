@@ -8,9 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class GUI_EmpleadosAdd extends JFrame {
+public class GUIEmpleadosEmergente extends JFrame {
 
-    public GUI_EmpleadosAdd() {
+    public GUIEmpleadosEmergente() {
         GuardarDialog();
     }
     

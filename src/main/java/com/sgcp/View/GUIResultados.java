@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 import com.sgcp.Controller.Listener.GoToListener;
 
-public class GUI_Resultados extends JPanel {
+public class GUIResultados extends JPanel {
 
 
     private JPanel contentPane;
@@ -20,7 +20,7 @@ public class GUI_Resultados extends JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
 
-    public GUI_Resultados(JPanel panel, Connection bd) {
+    public GUIResultados(JPanel panel, Connection bd) {
         this.bd = bd;
         contentPane = panel;
         initComponents();

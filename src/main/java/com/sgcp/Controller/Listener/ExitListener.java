@@ -6,14 +6,14 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
-import com.sgcp.View.GUI_Login;
+import com.sgcp.View.GUILogin;
 
 public class ExitListener implements ActionListener {
     
     private JFrame window;
-    private final GUI_Login acceso;
+    private final GUILogin acceso;
 
-    public ExitListener(JFrame ventana, GUI_Login acceso) {
+    public ExitListener(JFrame ventana, GUILogin acceso) {
         window = ventana;
         this.acceso = acceso;
     }

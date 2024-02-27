@@ -1,8 +1,8 @@
 package com.sgcp.Controller;
 import com.sgcp.Model.Empleado;
 import com.sgcp.Model.DAO.OperacionesBD;
-import com.sgcp.View.GUI_Empleados;
-import com.sgcp.View.GUI_EmpleadosAdd;
+import com.sgcp.View.GUIEmpleados;
+import com.sgcp.View.GUIEmpleadosEmergente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,11 +19,11 @@ import java.util.ArrayList;
 public class ControladorEmpleados {
     
     private JPanel contentPane;
-    private GUI_Empleados view;
+    private GUIEmpleados view;
     private Empleado model;
     private OperacionesBD BD;
     
-    public ControladorEmpleados(GUI_Empleados m, JPanel panel, Connection bd) {
+    public ControladorEmpleados(GUIEmpleados m, JPanel panel, Connection bd) {
         BD = new OperacionesBD(bd);
         contentPane = panel;
         view = m;
@@ -108,7 +108,7 @@ public class ControladorEmpleados {
     
         @Override
         public void actionPerformed(ActionEvent arg0) {
-            GUI_EmpleadosAdd emergente = new GUI_EmpleadosAdd();
+            GUIEmpleadosEmergente emergente = new GUIEmpleadosEmergente();
             emergente.setButton1ActionListener(new Guardar(emergente,0));
         }
         
@@ -123,7 +123,7 @@ public class ControladorEmpleados {
 
             if (fila != -1) {
                 try {
-                    GUI_EmpleadosAdd emergente = new GUI_EmpleadosAdd();
+                    GUIEmpleadosEmergente emergente = new GUIEmpleadosEmergente();
                     emergente.setFrameName("Actualizar empleado");
                     emergente.setIdField(tabla.getValueAt(fila, 0).toString());
                     emergente.setNameField(tabla.getValueAt(fila, 1).toString());
@@ -168,10 +168,10 @@ public class ControladorEmpleados {
 
     public class Guardar implements ActionListener {
 
-        private GUI_EmpleadosAdd addon;
+        private GUIEmpleadosEmergente addon;
         private int mode;
 
-        public Guardar(GUI_EmpleadosAdd panel, int mode) {
+        public Guardar(GUIEmpleadosEmergente panel, int mode) {
             addon = panel;
             this.mode = mode;
         }

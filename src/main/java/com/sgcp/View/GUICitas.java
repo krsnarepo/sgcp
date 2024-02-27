@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 import com.sgcp.Controller.Listener.GoToListener;
 
-public class GUI_Citas extends javax.swing.JPanel {
+public class GUICitas extends javax.swing.JPanel {
 
     
 
@@ -19,7 +19,7 @@ public class GUI_Citas extends javax.swing.JPanel {
     private JPanel contentPane;
     public Connection bd;
 
-    public GUI_Citas(JPanel panel, Connection bd) {
+    public GUICitas(JPanel panel, Connection bd) {
         this.bd = bd;
         contentPane = panel;
         initComponents();

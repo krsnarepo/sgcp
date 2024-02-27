@@ -10,16 +10,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.sgcp.Model.DAO.Autenticacion;
-import com.sgcp.View.GUI_Login;
+import com.sgcp.View.GUILogin;
 
 public class LoginListener implements ActionListener {
 
     private JPanel contentPane;
-    private final GUI_Login acceso;
+    private final GUILogin acceso;
     private Connection bd;
     private Autenticacion auth;
 
-    public LoginListener(GUI_Login acceso, JPanel panel, Connection bd) {
+    public LoginListener(GUILogin acceso, JPanel panel, Connection bd) {
         this.bd = bd;
         this.acceso = acceso;
         contentPane = panel;

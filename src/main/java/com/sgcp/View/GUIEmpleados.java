@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.sgcp.Controller.Listener.GoToListener;
 
-public class GUI_Empleados extends javax.swing.JPanel {
+public class GUIEmpleados extends javax.swing.JPanel {
 
     
     private javax.swing.JButton jButton1;
@@ -22,7 +22,7 @@ public class GUI_Empleados extends javax.swing.JPanel {
     private JPanel contentPane;
     public Connection bd;
 
-    public GUI_Empleados(JPanel panel, Connection bd) {
+    public GUIEmpleados(JPanel panel, Connection bd) {
         this.bd = bd;
         contentPane = panel;
         initComponents();

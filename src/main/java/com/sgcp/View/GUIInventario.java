@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 import com.sgcp.Controller.Listener.GoToListener;
 
-public class GUI_Inventario extends JPanel {
+public class GUIInventario extends JPanel {
 
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -18,7 +18,7 @@ public class GUI_Inventario extends JPanel {
     private JPanel contentPane;
     public Connection bd;
 
-    public GUI_Inventario(JPanel panel, Connection bd) {
+    public GUIInventario(JPanel panel, Connection bd) {
 
         this.bd = bd;
         contentPane = panel;

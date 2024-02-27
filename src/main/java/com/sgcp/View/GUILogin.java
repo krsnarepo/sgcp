@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import com.sgcp.Controller.Listener.ExitListener;
 import com.sgcp.Controller.Listener.LoginListener;
 
-public class GUI_Login extends javax.swing.JPanel {
+public class GUILogin extends javax.swing.JPanel {
 
     private JPanel contentPane;
     private final JFrame main;
@@ -24,7 +24,7 @@ public class GUI_Login extends javax.swing.JPanel {
 
     private static Boolean login_success = false;
 
-    public GUI_Login(JFrame main, JPanel panel, Connection bd) {
+    public GUILogin(JFrame main, JPanel panel, Connection bd) {
         this.main = main;
         this.bd = bd;
         contentPane = panel;

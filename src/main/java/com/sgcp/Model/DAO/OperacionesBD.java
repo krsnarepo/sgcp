@@ -11,7 +11,7 @@ import com.sgcp.Model.Empleado;
 
 public class OperacionesBD {
 
-    private Empleado model;
+    //private Empleado model;
     private Connection bd;
 
     public OperacionesBD(Connection bd) {

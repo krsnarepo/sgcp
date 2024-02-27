@@ -6,13 +6,13 @@ import javax.swing.JPanel;
 
 import com.sgcp.Controller.Listener.GoToListener;
 
-public class GUI_Pagos extends JPanel {
+public class GUIPagos extends JPanel {
 
 
     private JPanel contentPane;
     public Connection bd;
 
-    public GUI_Pagos(JPanel panel, Connection bd) {
+    public GUIPagos(JPanel panel, Connection bd) {
         this.bd = bd;
         contentPane = panel;
         initComponents();

@@ -6,12 +6,12 @@ import javax.swing.JPanel;
 
 import com.sgcp.Controller.Listener.GoToListener;
 
-public class GUI_Clientes extends JPanel {
+public class GUIClientes extends JPanel {
 
     private JPanel contentPane;
     public Connection bd;
 
-    public GUI_Clientes(JPanel panel, Connection bd) {
+    public GUIClientes(JPanel panel, Connection bd) {
         this.bd = bd;
         contentPane = panel;
         initComponents();
