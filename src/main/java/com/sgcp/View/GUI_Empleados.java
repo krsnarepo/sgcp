@@ -128,4 +128,16 @@ public class GUI_Empleados extends javax.swing.JPanel {
         jButton2.addActionListener(action);
     }
 
+    public void setButton3ActionListener(ActionListener action) {
+        jButton3.addActionListener(action);
+    }
+
+    public void setButton4ActionListener(ActionListener action) {
+        jButton4.addActionListener(action);
+    }
+
+    public javax.swing.JTable getTable(){
+        return jTable1;
+    }
+
 }

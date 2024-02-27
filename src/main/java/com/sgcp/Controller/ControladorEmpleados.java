@@ -29,6 +29,8 @@ public class ControladorEmpleados {
         view = m;
         view.Table1SetModel(UpdateEmpleadoTable());
         view.setButton2ActionListener(new ButtonAdd());
+        view.setButton3ActionListener(new ButtonUpdate());
+        view.setButton4ActionListener(new ButtonDelete());
     }
 
     private void UpdateTable() {
@@ -107,18 +109,71 @@ public class ControladorEmpleados {
         @Override
         public void actionPerformed(ActionEvent arg0) {
             GUI_EmpleadosAdd emergente = new GUI_EmpleadosAdd();
-            emergente.setButton1ActionListener(new Guardar(emergente));
+            emergente.setButton1ActionListener(new Guardar(emergente,0));
         }
         
     }
-    
+
+    public class ButtonUpdate implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+            javax.swing.JTable tabla = view.getTable();
+            int fila = tabla.getSelectedRow();
+
+            if (fila != -1) {
+                try {
+                    GUI_EmpleadosAdd emergente = new GUI_EmpleadosAdd();
+                    emergente.setFrameName("Actualizar empleado");
+                    emergente.setIdField(tabla.getValueAt(fila, 0).toString());
+                    emergente.setNameField(tabla.getValueAt(fila, 1).toString());
+                    emergente.setSurnameField(tabla.getValueAt(fila, 2).toString());
+                    emergente.setDirField(tabla.getValueAt(fila, 3).toString());
+                    emergente.setNumField(tabla.getValueAt(fila, 4).toString());
+                    emergente.setDniField(tabla.getValueAt(fila, 5).toString());
+                    emergente.setPosField(tabla.getValueAt(fila, 6).toString());
+                    emergente.setMailField(tabla.getValueAt(fila, 7).toString());
+                    emergente.setButton1ActionListener(new Guardar(emergente, 1));
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    JOptionPane.showMessageDialog(view, "Por favor, seleccione una fila para actualizar.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(view, "Por favor, seleccione una fila para actualizar.");
+            }
+        
+        }
+        
+    }
+
+    public class ButtonDelete implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+            javax.swing.JTable tabla = view.getTable();
+            int fila = tabla.getSelectedRow();
+
+            if (fila != -1) {
+                try {
+                    BD.DeleteEmpleado((tabla.getValueAt(fila, 0)).toString());
+                    UpdateTable();
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    JOptionPane.showMessageDialog(view, "Por favor, seleccione una fila para eliminar.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(view, "Por favor, seleccione una fila para eliminar.");
+            }
+        }
+
+    }
 
     public class Guardar implements ActionListener {
 
         private GUI_EmpleadosAdd addon;
+        private int mode;
 
-        public Guardar(GUI_EmpleadosAdd panel) {
+        public Guardar(GUI_EmpleadosAdd panel, int mode) {
             addon = panel;
+            this.mode = mode;
         }
 
         @Override
@@ -133,9 +188,14 @@ public class ControladorEmpleados {
                 model.setTelefono(addon.getNumField());
                 model.setDNI(Integer.parseInt(addon.getDniField()));
                 model.setPuesto(addon.getPosField());
-                model.setCorreo(addon.getPosField());
+                model.setCorreo(addon.getMailField());
 
-                BD.SaveNewEmpleado(model);
+                if (mode == 0) {
+                    BD.SaveNewEmpleado(model);
+                } else if (mode == 1) {
+                    BD.UpdateEmpleado(model);
+                }
+
                 UpdateTable();
                 addon.dispose();
             } catch (Exception e) {
@@ -146,5 +206,7 @@ public class ControladorEmpleados {
         }
 
     }
+
+
 
 }

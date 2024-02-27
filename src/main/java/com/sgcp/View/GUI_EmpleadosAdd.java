@@ -3,15 +3,12 @@ package com.sgcp.View;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.sgcp.Controller.ControladorEmpleados.Guardar;
-
-public class GUI_EmpleadosAdd extends JDialog {
+public class GUI_EmpleadosAdd extends JFrame {
 
     public GUI_EmpleadosAdd() {
         GuardarDialog();
@@ -19,9 +16,9 @@ public class GUI_EmpleadosAdd extends JDialog {
     
     private void GuardarDialog() {  
 
-        JFrame frame = new JFrame("Añadir empleado");
-        frame.setSize(400, 500);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setName("Añadir empleado");
+        this.setSize(400, 500);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // Crear componentes para el formulario
         idLabel = new JLabel("ID_PACIENTE");
@@ -66,9 +63,9 @@ public class GUI_EmpleadosAdd extends JDialog {
 
         panel.add(acceptButton);
 
-        frame.add(panel);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        this.add(panel);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     public String getIdField() {
@@ -103,10 +100,46 @@ public class GUI_EmpleadosAdd extends JDialog {
         return mailField.getText();
     }
 
+    public void setFrameName(String name) {
+        this.setName(name);
+    }
+
+    public void setIdField(String idField) {
+        this.idField.setText(idField);
+    }
+
+    public void setNameField(String nameField) {
+        this.nameField.setText(nameField);
+    }
+
+    public void setSurnameField(String surnameField) {
+        this.surnameField.setText(surnameField);
+    }
+
+    public void setDirField(String dirField) {
+        this.dirField.setText(dirField);
+    }
+
+    public void setNumField(String numField) {
+        this.numField.setText(numField);
+    }
+
+    public void setDniField(String dniField) {
+        this.dniField.setText(dniField);
+    }
+
+    public void setPosField(String posField) {
+        this.posField.setText(posField);
+    }
+
+    public void setMailField(String mailField) {
+        this.mailField.setText(mailField);
+    }
+
     public void setButton1ActionListener(ActionListener action) {
         acceptButton.addActionListener(action);
     }
-
+    
     private JLabel idLabel;
     private JLabel nameLabel;
     private JLabel surnameLabel;

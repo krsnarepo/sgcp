@@ -48,24 +48,60 @@ public class OperacionesBD {
     }
 
     public void SaveNewEmpleado(Empleado E) {
-
         String query = "INSERT INTO EMPLEADO(ID_EMPLEADO, NOMBRES, APELLIDOS, DIRECCION, TELEF, DNI, PUESTO, CORREO) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String id = Integer.toString(E.getID());
+        if (!existsEmpleado(id))
+            executeUpdateQuery(query, Integer.toString(E.getID()), E.getNombres(), E.getApellidos(), E.getDireccion(), E.getTelefono(), Integer.toString(E.getDNI()), E.getPuesto(), E.getCorreo());
+        else
+            System.out.println("Error al guardar. Ya existe un registro con el ID");
+    }
     
+    public void UpdateEmpleado(Empleado E) {
+        String query = "UPDATE EMPLEADO SET ID_EMPLEADO = ?, NOMBRES = ?, APELLIDOS = ?, DIRECCION = ?, TELEF = ?, DNI = ?, PUESTO = ?, CORREO = ? WHERE ID_EMPLEADO = ?";
+        String id = Integer.toString(E.getID());
+        if (!existsEmpleado(id))
+            executeUpdateQuery(query, Integer.toString(E.getID()), E.getNombres(), E.getApellidos(), E.getDireccion(), E.getTelefono(), Integer.toString(E.getDNI()), E.getPuesto(), E.getCorreo(), Integer.toString(E.getID()));
+        else
+            System.out.println("Error al actualizar. Ya existe un registro con el ID");
+    }
+
+    public void DeleteEmpleado(String id) {
+        String query = "DELETE FROM EMPLEADO WHERE ID_EMPLEADO = ?";
+        executeUpdateQuery(query, id);
+    }
+
+    public void executeUpdateQuery(String query, Object... params) {
         try (PreparedStatement ps = bd.prepareStatement(query)) {
-            ps.setLong(1, E.getID());
-            ps.setString(2, E.getNombres());
-            ps.setString(3, E.getApellidos());
-            ps.setString(4, E.getDireccion());
-            ps.setString(5, E.getTelefono());
-            ps.setLong(6, E.getDNI());
-            ps.setString(7, E.getPuesto());
-            ps.setString(8, E.getCorreo());
-            
+            // Set parameters
+            for (int i = 0; i < params.length; i++) {
+                Object param = params[i];
+                if (param instanceof String) {
+                    ps.setString(i + 1, (String) param);
+                } else if (param instanceof Long) {
+                    ps.setLong(i + 1, (Long) param);
+                } 
+            }
             ps.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println("Imposible guardar los datos: " + ex.getMessage());
+            System.out.println("Error al ejecutar la consulta: " + ex.getMessage());
         }
+    }
 
+    public boolean existsEmpleado(String id) {
+        String query = "SELECT COUNT(*) FROM EMPLEADO WHERE ID_EMPLEADO = ?";
+
+        try (PreparedStatement ps = bd.prepareStatement(query)) {
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return count > 0;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al ejecutar la consulta: " + ex.getMessage());
+        }
+        return false;
     }
     
 }
